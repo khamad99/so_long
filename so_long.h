@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raghonya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 17:43:01 by raghonya          #+#    #+#             */
-/*   Updated: 2023/02/25 17:43:04 by raghonya         ###   ########.fr       */
+/*   Updated: 2023/03/21 07:17:55 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define WALL "images/shenq.xpm"
 # define SPACE "images/floor.xpm"
 # include <math.h>
-# include <mlx.h>
+# include "minilibx/mlx.h"
 # include <stdio.h>
 # include "libft/libft.h"
 # include "libft/get_next_line.h"
