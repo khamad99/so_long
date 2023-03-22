@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raghonya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:34:58 by raghonya          #+#    #+#             */
-/*   Updated: 2023/01/16 14:35:12 by raghonya         ###   ########.fr       */
+/*   Created: 2022/07/24 08:36:57 by kalshaer          #+#    #+#             */
+/*   Updated: 2022/08/01 14:36:18 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	if (!f || !lst)
+		return ;
 	while (lst)
 	{
-		f (lst->content);
+		f(lst->content);
 		lst = lst->next;
 	}
 }

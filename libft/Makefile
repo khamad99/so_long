@@ -1,29 +1,84 @@
-NAME = libft.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/24 09:13:07 by kalshaer          #+#    #+#              #
+#    Updated: 2023/01/16 20:16:15 by kalshaer         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
+NAME		= libft.a
 
-FILES = $(filter-out $(wildcard ft_lst*.c),$(wildcard *.c))
+SRCS		= ft_memset.c \
+			  ft_bzero.c \
+			  ft_memcpy.c \
+			  ft_memmove.c \
+			  ft_memchr.c \
+			  ft_memcmp.c \
+			  ft_strlen.c \
+			  ft_strlcpy.c \
+			  ft_strlcat.c \
+			  ft_strchr.c \
+			  ft_strrchr.c \
+			  ft_strnstr.c \
+			  ft_strncmp.c \
+			  ft_atoi.c \
+			  ft_isalpha.c \
+			  ft_isdigit.c \
+			  ft_isalnum.c \
+			  ft_isascii.c \
+			  ft_isprint.c \
+			  ft_toupper.c \
+			  ft_tolower.c \
+			  ft_calloc.c \
+			  ft_strdup.c \
+			  ft_substr.c \
+			  ft_strjoin.c \
+			  ft_strtrim.c \
+			  ft_split.c \
+			  ft_itoa.c \
+			  ft_strmapi.c \
+			  ft_striteri.c \
+			  ft_putchar_fd.c \
+			  ft_putstr_fd.c \
+			  ft_putendl_fd.c \
+			  ft_putnbr_fd.c \
+			  ft_lstnew.c \
+			  ft_lstadd_front.c \
+			  ft_lstsize.c \
+			  ft_lstlast.c \
+			  ft_lstadd_back.c \
+			  ft_lstdelone.c \
+			  ft_lstclear.c \
+			  ft_lstiter.c \
+			  ft_lstmap.c \
+			  ft_printf_bonus.c \
+			  ft_printf_bonus2.c \
+			  ft_printf_support_bonus.c \
+			  ft_printf_to_convert_bonus.c \
+			  ft_printf_flags_bonus.c \
+			  ft_printf_flags_bonus2.c \
+			  get_next_line_bonus.c \
+			  get_next_line_utils_bonus.c
+			  
+				
+OBJS		= $(SRCS:%.c=%.o)
 
-OBJ = $(FILES:.c=.o)
+FLAGS		= -Wall -Werror -Wextra
 
-BONUS = $(wildcard ft_lst*.c)
-
-BONUS_OBJ = $(BONUS:.c=.o)
+$(NAME):
+	cc $(FLAGS) -c $(SRCS) -I ./
+	ar rc $(NAME) $(OBJS)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
-
-bonus: $(BONUS_OBJ)
-	@ar rcs $(NAME) $(BONUS_OBJ)
-
 clean:
-	@rm -f *.o
+	rm -f $(OBJS)
 
 fclean: clean
-	@rm -f libft.a
+	rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean bonus re

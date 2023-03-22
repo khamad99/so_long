@@ -3,71 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raghonya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 16:16:47 by raghonya          #+#    #+#             */
-/*   Updated: 2023/01/16 16:17:00 by raghonya         ###   ########.fr       */
+/*   Created: 2022/07/24 09:09:25 by kalshaer          #+#    #+#             */
+/*   Updated: 2023/01/13 07:58:30 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-
-static int	check(char const *set, char c)
-{
-	int	i;
-
-	i = -1;
-	while (set[++i])
-		if (set[i] == c)
-			return (1);
-	return (0);
-}
-
-void	st_end(char const *s1, char const *set, int *start, int *end)
-{
-	int	i;
-
-	i = -1;
-	while (s1[++i])
-	{
-		if (!check(set, s1[i]))
-		{
-			*start = i;
-			break ;
-		}
-	}
-	i = ft_strlen(s1);
-	while (--i >= 0)
-	{
-		if (!check(set, s1[i]))
-		{
-			*end = i;
-			break ;
-		}
-	}
-}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		start;
-	int		end;
-	char	*s;
+	char	*r;
+	int		len;
 
-	i = 0;
-	start = 0;
-	end = 0;
 	if (!s1 || !set)
-		return (NULL);
-	st_end (s1, set, &start, &end);
-	if (start == 0 && start == end)
-		return (ft_strdup(""));
-	s = malloc (sizeof(char) * (end - start + 2));
-	if (!s)
-		return (NULL);
-	while (start <= end)
-		s[i++] = s1[start++];
-	s[i] = 0;
-	return (s);
+		return (0);
+	while (s1[0] && ft_strchr(set, s1[0]))
+		s1++;
+	len = ft_strlen(s1);
+	while (len && ft_strchr(set, s1[len - 1]))
+		len--;
+	r = ft_calloc((len + 1), sizeof(char));
+	if (!r)
+		return (0);
+	r[len] = 0;
+	while (len > 0)
+	{
+		r[len - 1] = s1[len - 1];
+		len--;
+	}
+	return (r);
 }

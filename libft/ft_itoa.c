@@ -3,58 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raghonya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:34:17 by raghonya          #+#    #+#             */
-/*   Updated: 2023/01/16 14:34:18 by raghonya         ###   ########.fr       */
+/*   Created: 2022/07/24 08:35:35 by kalshaer          #+#    #+#             */
+/*   Updated: 2023/01/13 07:54:49 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count(long int nb)
+static void	toput(char *r, long int nb, long int d)
 {
-	int	size;
-
-	size = 0;
+	if (nb == 0)
+		r[0] = '0';
 	if (nb < 0)
 	{
-		size++;
-		nb *= -1;
+		r[0] = '-';
+		nb = nb * -1;
 	}
-	while (nb)
+	while (nb > 0)
 	{
-		size++;
-		nb /= 10;
+		r[d - 1] = (nb % 10) + '0';
+		nb = nb / 10;
+		d--;
 	}
-	return (size);
 }
 
 char	*ft_itoa(int n)
 {
-	int			i;
-	int			size;
-	char		*s;
-	long int	nb;
+	char		*r;
+	long int	d;
+	long int	i;
+	long int	nm;
 
-	i = 0;
-	nb = n;
-	if (nb == 0)
-		return (ft_strdup("0"));
-	size = count (nb);
-	s = malloc (sizeof(char) * (size + 1));
-	if (!s)
-		return (NULL);
-	if (nb < 0)
+	d = 0;
+	i = n;
+	nm = n;
+	while (i != 0)
 	{
-		s[i++] = '-';
-		nb *= -1;
+		i = i / 10;
+		d++;
 	}
-	s[size--] = 0;
-	while (i <= size)
-	{
-		s[size--] = (nb % 10 + 48);
-		nb /= 10;
-	}
-	return (s);
+	if (n <= 0)
+		d++;
+	r = ft_calloc((d + 1), sizeof(char));
+	if (!r)
+		return (0);
+	toput(r, nm, d);
+	r[d] = 0;
+	return (r);
 }

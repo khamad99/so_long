@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raghonya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:34:58 by raghonya          #+#    #+#             */
-/*   Updated: 2023/01/16 14:35:12 by raghonya         ###   ########.fr       */
+/*   Created: 2022/07/24 08:37:14 by kalshaer          #+#    #+#             */
+/*   Updated: 2023/02/16 14:10:29 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,22 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new;
-	t_list	*a;
+	t_list	*new_lst;
+	t_list	*new_elem;
 
-	a = NULL;
+	if (!f || !lst)
+		return (NULL);
+	new_lst = NULL;
 	while (lst)
 	{
-		new = ft_lstnew (f(lst->content));
-		if (!new)
+		new_elem = ft_lstnew(0, 0);
+		if (!new_elem)
 		{
-			ft_lstclear (&new, del);
+			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&a, new);
+		ft_lstadd_back(&new_lst, new_elem);
 		lst = lst->next;
 	}
-	return (a);
+	return (new_lst);
 }
-
-// int main()
-// {
-// 	t_list * head = NULL;
-// 	head = (t_list *) malloc(sizeof(t_list));
-// 	head->content = "1";
-// 	head->next = (t_list *) malloc(sizeof(t_list));
-// 	head->next->content = "2";
-// 	head->next->next = malloc(sizeof(t_list));
-// 	head->next->next->content = "3";
-// 	head->next->next->next = malloc(sizeof(t_list));
-// 	head->next->next->next->content = "AASFDGASDG";
-// 	head->next->next->next->next = NULL;
-// 	t_list *s = ft_lstmap (head, NULL, NULL);
-// 	printf ("%s\n", s->content);
-// }

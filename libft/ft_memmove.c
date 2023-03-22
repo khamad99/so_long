@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memFuncs.c                                      :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raghonya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:30:32 by raghonya          #+#    #+#             */
-/*   Updated: 2023/01/16 16:16:34 by raghonya         ###   ########.fr       */
+/*   Created: 2022/07/24 08:48:57 by kalshaer          #+#    #+#             */
+/*   Updated: 2022/08/16 21:41:21 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *s1, const void *s2, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*s11;
-	unsigned char	*s22;
-
-	if (!s1 && !s2)
-		return (NULL);
-	s11 = (unsigned char *)s1;
-	s22 = (unsigned char *)s2;
-	if (s22 < s11)
-	{
-		s11 += n;
-		s22 += n;
-		while (n--)
-			*--s11 = *--s22;
-	}
+	if (len == 0 || dst == src)
+		return (dst);
+	if (src > dst)
+		return (ft_memcpy(dst, src, len));
 	else
-		while (n--)
-			*s11++ = *s22++;
-	return (s1);
+	{
+		while (len > 0)
+		{
+			*((unsigned char *)dst + len - 1) = *((unsigned char *)
+					src + len - 1);
+			len--;
+		}
+		return (dst);
+	}
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 17:43:01 by raghonya          #+#    #+#             */
-/*   Updated: 2023/03/21 07:17:55 by kalshaer         ###   ########.fr       */
+/*   Created: 2023/03/22 08:09:56 by kalshaer          #+#    #+#             */
+/*   Updated: 2023/03/22 08:10:21 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@
 # include "minilibx/mlx.h"
 # include <stdio.h>
 # include "libft/libft.h"
-# include "libft/get_next_line.h"
-# include "printf/ft_printf.h"
 
 typedef struct s_img
 {

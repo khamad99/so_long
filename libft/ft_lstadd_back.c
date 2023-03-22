@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raghonya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:34:33 by raghonya          #+#    #+#             */
-/*   Updated: 2023/01/16 14:37:37 by raghonya         ###   ########.fr       */
+/*   Created: 2022/07/24 08:36:24 by kalshaer          #+#    #+#             */
+/*   Updated: 2022/08/01 14:26:38 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*a;
+	t_list	*last;
 
-	if (!*lst && new)
+	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
-	else if (!new)
-		return ;
-	a = *lst;
-	while ((*lst)->next)
-		*lst = (*lst)->next;
-	(*lst)->next = new;
-	*lst = a;
+	last = ft_lstlast(*lst);
+	last->next = new;
 }

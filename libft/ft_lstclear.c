@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raghonya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:34:58 by raghonya          #+#    #+#             */
-/*   Updated: 2023/01/16 14:35:12 by raghonya         ###   ########.fr       */
+/*   Created: 2022/07/24 08:36:41 by kalshaer          #+#    #+#             */
+/*   Updated: 2022/08/01 14:37:03 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*temp;
+
+	if (!*lst)
+		return ;
 	while (*lst)
 	{
+		temp = (*lst)->next;
 		ft_lstdelone(*lst, del);
-		*lst = (*lst)->next;
+		*lst = temp;
 	}
-	lst = NULL;
+	*lst = 0;
 }

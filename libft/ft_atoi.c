@@ -3,29 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raghonya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 14:31:46 by raghonya          #+#    #+#             */
-/*   Updated: 2023/01/16 14:31:48 by raghonya         ###   ########.fr       */
+/*   Created: 2022/07/24 08:19:39 by kalshaer          #+#    #+#             */
+/*   Updated: 2023/01/24 20:41:26 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *s)
-{
-	int	i;
-	int	n;
-	int	sign;
+#include "libft.h"
 
-	i = 0;
-	n = 0;
-	sign = 1;
-	while (s[i] == '\t' || s[i] == '\f' || s[i] == '\r'
-		|| s[i] == '\n' || s[i] == '\v' || s[i] == ' ')
-		i++;
-	if (s[i] == '-' || s[i] == '+')
-		if (s[i++] == '-')
-			sign = -1;
-	while (s[i] > 47 && s[i] < 58)
-		n = (n * 10) + (s[i++] - 48);
-	return (sign * n);
+long long	ft_atoi(const char *str)
+{
+	long long	s;
+	size_t		r;
+
+	s = 1;
+	r = 0;
+	while (*str == ' ' || *str == '\f' || *str == '\n' || *str
+		== '\r' || *str == '\t' || *str == '\v')
+		str++;
+	if (*str == '-')
+		s = -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	while (ft_isdigit(*str))
+	{
+		r = r * 10 + (*str - '0');
+		str++;
+	}
+	if (s == -1 && r > 9223372036854775807)
+		return (0);
+	else if (s == 1 && r >= 9223372036854775807)
+		return (-1);
+	return (r * s);
 }
