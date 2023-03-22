@@ -25,13 +25,13 @@ void do_loop_flush(CFRunLoopObserverRef observer, CFRunLoopActivity activity, vo
   mlx_ptr = (mlx_ptr_t *)info;
   win = mlx_ptr->win_list;
   while (win)
-  {
-    if (win->nb_flush > 0 && win->pixmgt)
-	  {
-	    [(id)win->winid selectGLContext];
-	   [(id)win->winid mlx_gl_draw];
-	   glFlush();
-    win->nb_flush = 0;
+    {
+      if (win->nb_flush > 0 && win->pixmgt)
+	{
+	  [(id)win->winid selectGLContext];
+	  [(id)win->winid mlx_gl_draw];
+	  glFlush();
+	  win->nb_flush = 0;
 	}
       win = win->next;
     }
