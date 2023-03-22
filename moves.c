@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:25 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/22 13:53:27 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/22 21:22:36 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ void	eli_norm(t_mlx *mlx, char *s)
 
 void	to_up(t_mlx *mlx, int *count)
 {
-	int	x;
-
-	x = 0;
 	if (mlx->map[mlx->i - 1][mlx->j] != '1')
 	{
 		*count = *count + 1;
@@ -58,9 +55,6 @@ void	to_up(t_mlx *mlx, int *count)
 
 void	to_right(t_mlx *mlx, int *count)
 {
-	int	x;
-
-	x = 0;
 	if (mlx->map[mlx->i][mlx->j + 1] != '1')
 	{
 		*count += 1;
@@ -84,9 +78,6 @@ void	to_right(t_mlx *mlx, int *count)
 
 void	to_down(t_mlx *mlx, int *count)
 {
-	int	x;
-
-	x = 0;
 	if (mlx->map[mlx->i + 1][mlx->j] != '1')
 	{
 		*count += 1;
@@ -110,9 +101,6 @@ void	to_down(t_mlx *mlx, int *count)
 
 void	to_left(t_mlx *mlx, int *count)
 {
-	int	x;
-
-	x = 0;
 	if (mlx->map[mlx->i][mlx->j - 1] != '1')
 	{
 		*count += 1;
