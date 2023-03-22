@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:56 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/22 08:10:21 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/22 13:41:54 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 //And please, keep images size in 50PX in width and height,
 // or change it from below
 
-# define PX 50
+# define Pixcel 50
 # define PLAYER_UP "images/hummerup.xpm"
 # define P_RIGHT "images/hummerright.xpm"
 # define P_DOWN "images/hummerdown.xpm"
@@ -78,18 +78,18 @@ typedef struct s_count
 	int	e_count;
 	int	c_count;
 	int	p_count;
-	int	e_tox;
-	int	e_syun;
+	int	e_x;
+	int	e_y;
 }	t_count;
 
-int		counts(char **split, char **split2);
-char	**map_check(char *file, int *c_count);
+int		count_symbols(char **s);
+char	**map_check(char *file, int *mlxcount);
 void	for_up(t_mlx *mlx);
 void	for_right(t_mlx *mlx);
 void	for_down(t_mlx *mlx);
 void	for_left(t_mlx *mlx);
 void	create_map(t_mlx *mlx);
-void	universal_func(int a, char *s);
+void	errorh(char *s);
 void	to_up(t_mlx *mlx, int *count);
 void	to_right(t_mlx *mlx, int *count);
 void	to_down(t_mlx *mlx, int *count);
