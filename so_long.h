@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:56 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 14:40:48 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:44:04 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_mlx
 	t_img	e;
 	t_img	s;
 	t_img	c;
-	t_img	en;
+	t_img	sh;
 	void	*mlx;
 	void	*win;
 	char	**map;

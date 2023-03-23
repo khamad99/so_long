@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:08 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 14:39:30 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:42:33 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	images(t_mlx *mlx)
 {
 	int		x;
 
-	mlx->en.path = SHARK;
+	mlx->sh.path = SHARK;
 	mlx->e.path = EXIT;
 	mlx->w.path = WALL;
 	mlx->c.path = F_LEFT;
@@ -35,9 +35,9 @@ void	images(t_mlx *mlx)
 	mlx->c.img = mlx_xpm_file_to_image(mlx->mlx, mlx->c.path, &x, &x);
 	mlx->w.img = mlx_xpm_file_to_image(mlx->mlx, mlx->w.path, &x, &x);
 	mlx->e.img = mlx_xpm_file_to_image(mlx->mlx, mlx->e.path, &x, &x);
-	mlx->en.img = mlx_xpm_file_to_image(mlx->mlx, mlx->en.path, &x, &x);
+	mlx->sh.img = mlx_xpm_file_to_image(mlx->mlx, mlx->sh.path, &x, &x);
 	if (!mlx->p.img || !mlx->s.img || !mlx->c.img
-		|| !mlx->w.img || !mlx->e.img || !mlx->en.img)
+		|| !mlx->w.img || !mlx->e.img || !mlx->sh.img)
 		errorh("Invalid image path or img\n");
 }
 
@@ -63,7 +63,7 @@ void	fill_map2(t_mlx *mlx, int i, int *x, int y)
 		else if (mlx->map[i][j] == 'C')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->c.img, *x, y);
 		else if (mlx->map[i][j] == 'K')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->en.img, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->sh.img, *x, y);
 		*x = *x + Pixcel;
 	}
 }
