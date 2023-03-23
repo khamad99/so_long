@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   anim.c                                             :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:07 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 13:31:48 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:34:42 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	anim_norm(t_mlx *mlx, char a, char *s)
+void	animation_utils(t_mlx *mlx, char a, char *s)
 {
 	int	x;
 	int	i;
@@ -40,10 +40,10 @@ int	animation(t_mlx *mlx)
 	static int	i;
 	static int	j;
 
-	if (i % 8000 == 0)
-		anim_norm(mlx, 'C', F_LEFT);
-	if (j % 16000 == 0)
-		anim_norm(mlx, 'C', F_RIGHT);
+	if (i % 5000 == 0)
+		animation_utils(mlx, 'C', F_LEFT);
+	if (j % 10000 == 0)
+		animation_utils(mlx, 'C', F_RIGHT);
 	i++;
 	j++;
 	return (0);
