@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:08 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 13:37:31 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:39:30 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	func_for_p_norm(t_mlx *mlx, int i, int j, int y)
 	mlx->p_y = y;
 	mlx->i = i;
 	mlx->j = j;
-	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->p_x, y);
+	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.img, mlx->p_x, y);
 }
 
 void	images(t_mlx *mlx)
@@ -30,15 +30,15 @@ void	images(t_mlx *mlx)
 	mlx->c.path = F_LEFT;
 	mlx->s.path = SPACE;
 	mlx->p.path = D_UP;
-	mlx->p.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->p.path, &x, &x);
-	mlx->s.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->s.path, &x, &x);
-	mlx->c.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->c.path, &x, &x);
-	mlx->w.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->w.path, &x, &x);
-	mlx->e.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->e.path, &x, &x);
-	mlx->en.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->en.path, &x, &x);
-	if (!mlx->p.icon || !mlx->s.icon || !mlx->c.icon
-		|| !mlx->w.icon || !mlx->e.icon || !mlx->en.icon)
-		errorh("Invalid image path or icon\n");
+	mlx->p.img = mlx_xpm_file_to_image(mlx->mlx, mlx->p.path, &x, &x);
+	mlx->s.img = mlx_xpm_file_to_image(mlx->mlx, mlx->s.path, &x, &x);
+	mlx->c.img = mlx_xpm_file_to_image(mlx->mlx, mlx->c.path, &x, &x);
+	mlx->w.img = mlx_xpm_file_to_image(mlx->mlx, mlx->w.path, &x, &x);
+	mlx->e.img = mlx_xpm_file_to_image(mlx->mlx, mlx->e.path, &x, &x);
+	mlx->en.img = mlx_xpm_file_to_image(mlx->mlx, mlx->en.path, &x, &x);
+	if (!mlx->p.img || !mlx->s.img || !mlx->c.img
+		|| !mlx->w.img || !mlx->e.img || !mlx->en.img)
+		errorh("Invalid image path or img\n");
 }
 
 void	fill_map2(t_mlx *mlx, int i, int *x, int y)
@@ -50,20 +50,20 @@ void	fill_map2(t_mlx *mlx, int i, int *x, int y)
 	while (mlx->map[i][++j])
 	{
 		if (mlx->map[i][j] == '0')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img, *x, y);
 		else if (mlx->map[i][j] == '1')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->w.icon, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->w.img, *x, y);
 		else if (mlx->map[i][j] == 'P')
 		{
 			mlx->p_x = *x;
 			func_for_p_norm (mlx, i, j, y);
 		}
 		else if (mlx->map[i][j] == 'E')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.icon, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.img, *x, y);
 		else if (mlx->map[i][j] == 'C')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->c.icon, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->c.img, *x, y);
 		else if (mlx->map[i][j] == 'K')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->en.icon, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->en.img, *x, y);
 		*x = *x + Pixcel;
 	}
 }

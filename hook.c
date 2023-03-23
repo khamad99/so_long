@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:54:36 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 14:20:33 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:38:53 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	hooking_function(int key, t_mlx *mlx)
 		move_down(mlx, &count);
 	else if (key == 0 || key == 123)
 		move_left(mlx, &count);
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->w.icon, 0, 0);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->w.img, 0, 0);
 	s = ft_itoa(count);
 	mlx_string_put(mlx->mlx, mlx->win, 0, 10, 0x00000000, s);
 	free(s);

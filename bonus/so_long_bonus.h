@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:05:14 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 13:53:34 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:40:06 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef	struct s_img
 {
 	char	*path;
-	void	*icon;
+	void	*img;
 }	t_img;
 
 typedef	struct s_mlx

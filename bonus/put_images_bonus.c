@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:05:40 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 13:37:49 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:40:03 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	images(t_mlx *mlx)
 	mlx->C.path = "images/policeman.xpm";
 	mlx->S.path = "images/floor.xpm";
 	mlx->P.path = "images/hummerright.xpm";
-	mlx->P.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->P.path, &x, &x);
-	mlx->S.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->S.path, &x, &x);
-	mlx->C.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->C.path, &x, &x);
-	mlx->W.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->W.path, &x, &x);
-	mlx->E.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->E.path, &x, &x);
-	if (!mlx->P.icon || !mlx->S.icon || !mlx->C.icon \
-		|| !mlx->W.icon || !mlx->E.icon)
+	mlx->P.img = mlx_xpm_file_to_image(mlx->mlx, mlx->P.path, &x, &x);
+	mlx->S.img = mlx_xpm_file_to_image(mlx->mlx, mlx->S.path, &x, &x);
+	mlx->C.img = mlx_xpm_file_to_image(mlx->mlx, mlx->C.path, &x, &x);
+	mlx->W.img = mlx_xpm_file_to_image(mlx->mlx, mlx->W.path, &x, &x);
+	mlx->E.img = mlx_xpm_file_to_image(mlx->mlx, mlx->E.path, &x, &x);
+	if (!mlx->P.img || !mlx->S.img || !mlx->C.img \
+		|| !mlx->W.img || !mlx->E.img)
 	{
 		ft_printf ("Error\nNkarnerd texum chen kam sxal path\n");
 		exit(1);
@@ -43,21 +43,21 @@ void	kreativs_chheriqec(t_mlx *mlx, int i, int *x, int y)
 	while (mlx->map[i][++j])
 	{
 		if (mlx->map[i][j] == '0')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->S.icon, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->S.img, *x, y);
 		else if (mlx->map[i][j] == '1')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->W.icon, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->W.img, *x, y);
 		else if (mlx->map[i][j] == 'P')
 		{
 			mlx->i = i;
 			mlx->j = j;
 			mlx->p_x = *x;
 			mlx->p_y = y;
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->P.icon, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->P.img, *x, y);
 		}
 		else if (mlx->map[i][j] == 'E')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->E.icon, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->E.img, *x, y);
 		else if (mlx->map[i][j] == 'C')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->C.icon, *x, y);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->C.img, *x, y);
 		*x += 50;
 	}
 }
