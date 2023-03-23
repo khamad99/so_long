@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:05:14 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/22 08:05:23 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:53:34 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ typedef	struct s_mlx
 	char	**map;
 	int		map_x;
 	int		map_y;
-	int		px_x;
-	int		px_y;
+	int		p_x;
+	int		p_y;
 	int		i;
 	int		j;
 	int		count;
@@ -59,15 +59,15 @@ typedef struct s_count
 
 int		counts(char **split, char **split2);
 char	**map_check(char *file, int *c_count);
-void	for_up(t_mlx *mlx);
-void	for_right(t_mlx *mlx);
-void	for_down(t_mlx *mlx);
-void	for_left(t_mlx *mlx);
+void	up_utils(t_mlx *mlx);
+void	right_utils(t_mlx *mlx);
+void	down_utils(t_mlx *mlx);
+void	left_utils(t_mlx *mlx);
 void	create_map(t_mlx *mlx);
 void	universal_func(int a, char *s);
-void	to_up(t_mlx *mlx, int *count);
-void	to_right(t_mlx *mlx, int *count);
-void	to_down(t_mlx *mlx, int *count);
-void	to_left(t_mlx *mlx, int *count);
+void	move_up(t_mlx *mlx, int *count);
+void	move_right(t_mlx *mlx, int *count);
+void	move_down(t_mlx *mlx, int *count);
+void	move_left(t_mlx *mlx, int *count);
 
 #endif

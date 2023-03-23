@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:08 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/22 13:53:31 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:37:31 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	func_for_p_norm(t_mlx *mlx, int i, int j, int y)
 {
-	mlx->px_y = y;
+	mlx->p_y = y;
 	mlx->i = i;
 	mlx->j = j;
-	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->px_x, y);
+	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->p_x, y);
 }
 
 void	images(t_mlx *mlx)
 {
 	int		x;
 
-	mlx->en.path = ENEMY_RED;
+	mlx->en.path = SHARK;
 	mlx->e.path = EXIT;
 	mlx->w.path = WALL;
-	mlx->c.path = COIN_LEFT;
+	mlx->c.path = F_LEFT;
 	mlx->s.path = SPACE;
-	mlx->p.path = PLAYER_UP;
+	mlx->p.path = D_UP;
 	mlx->p.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->p.path, &x, &x);
 	mlx->s.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->s.path, &x, &x);
 	mlx->c.icon = mlx_xpm_file_to_image(mlx->mlx, mlx->c.path, &x, &x);
@@ -55,7 +55,7 @@ void	fill_map2(t_mlx *mlx, int i, int *x, int y)
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->w.icon, *x, y);
 		else if (mlx->map[i][j] == 'P')
 		{
-			mlx->px_x = *x;
+			mlx->p_x = *x;
 			func_for_p_norm (mlx, i, j, y);
 		}
 		else if (mlx->map[i][j] == 'E')

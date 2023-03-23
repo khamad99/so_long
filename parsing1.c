@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:56 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/22 21:21:25 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:19:27 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,26 @@ void	errorh(char *s)
 void	read_map(char **s, char *file)
 {
 	int		fd;
-	int		count;
+	int		i;
 	char	r;
 
-	count = 0;
+	i = 0;
 	if (ft_strncmp(ft_strrchr(file, '.'), ".ber", 4))
 		errorh("Invalid file\n");
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		errorh("Invalid file\n");
 	while (read(fd, &r, 1) > 0)
-		count++;
+		i++;
 	close(fd);
-	if (count == 0)
+	if (i == 0)
 		errorh("empty file\n");
 	fd = open(file, O_RDONLY);
-	*s = ft_calloc (count + 1, sizeof(char));
+	*s = ft_calloc (i + 1, sizeof(char));
 	if (!s)
 		errorh("error in mallocing\n");
-	read(fd, *s, count);
-	(*s)[count] = 0;
+	read(fd, *s, i);
+	(*s)[i] = 0;
 }
 
 void	symbols_checker(char **split, int j, int i, size_t len)
@@ -73,9 +73,9 @@ void	symbols_checker(char **split, int j, int i, size_t len)
 char	**map_check(char *file, int *mlxcount)
 {
 	char	**split;
-	//int		len;
+	int		len;
 	char	*s;
-	//int		i;
+	int		i;
 
 	read_map(&s, file);
 	split = ft_split(s, '\n');
@@ -83,12 +83,11 @@ char	**map_check(char *file, int *mlxcount)
 		errorh ("error in spliting\n");
 	symbols_checker(split, 0, -1, 0);
 	*mlxcount = count_symbols(ft_split(s, '\n'));
+	len = ft_strlen(split[0]);
+	i = -1;
 	free(s);
+	while (split[++i])
+		if (i > 20 || len > 40)
+			errorh("map is too larg\n");
 	return (split);
 }
-
-// len = ft_strlen(split[0]);
-	// i = -1;
-	// while (split[++i])
-	// 	if (i > 20 || len > 40)
-	// 		errorh("Shat mec map\nMaximum 20 tox, 40 syun\n");

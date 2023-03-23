@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:56 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/22 13:41:54 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:19:09 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,17 @@
 // or change it from below
 
 # define Pixcel 50
-# define PLAYER_UP "images/hummerup.xpm"
-# define P_RIGHT "images/hummerright.xpm"
-# define P_DOWN "images/hummerdown.xpm"
-# define P_LEFT "images/hummerleft.xpm"
-# define COIN_RIGHT "images/policemanleft.xpm"
-# define COIN_LEFT "images/policemanright.xpm"
-# define COIN_EXTRA "images/parkacpoliceman.xpm"
-# define ENEMY_RED "images/policecarred.xpm"
-# define ENEMY_BLUE "images/policecarblue.xpm"
-# define EXIT "images/garage.xpm"
-# define WALL "images/shenq.xpm"
-# define SPACE "images/floor.xpm"
-# include <math.h>
+# define D_UP "textures/dolphinup.xpm"
+# define D_RIGHT "textures/dolphinright.xpm"
+# define D_DOWN "textures/dolphindown.xpm"
+# define D_LEFT "textures/dolphinleft.xpm"
+# define SHARK "textures/shark.xpm"
+# define F_RIGHT "textures/fishleft.xpm"
+# define F_LEFT "textures/fishright.xpm"
+# define WALL "textures/wall.xpm"
+# define SPACE "textures/seab.xpm"
+# define EXIT "textures/seagate.xpm"
 # include "minilibx/mlx.h"
-# include <stdio.h>
 # include "libft/libft.h"
 
 typedef struct s_img
@@ -66,8 +62,8 @@ typedef struct s_mlx
 	char	**map;
 	int		map_x;
 	int		map_y;
-	int		px_x;
-	int		px_y;
+	int		p_x;
+	int		p_y;
 	int		i;
 	int		j;
 	int		count;
@@ -84,16 +80,18 @@ typedef struct s_count
 
 int		count_symbols(char **s);
 char	**map_check(char *file, int *mlxcount);
-void	for_up(t_mlx *mlx);
-void	for_right(t_mlx *mlx);
-void	for_down(t_mlx *mlx);
-void	for_left(t_mlx *mlx);
+void	move_up(t_mlx *mlx, int *count);
+void	move_right(t_mlx *mlx, int *count);
+void	move_down(t_mlx *mlx, int *count);
+void	move_left(t_mlx *mlx, int *count);
+void	up_utils(t_mlx *mlx);
+void	right_utils(t_mlx *mlx);
+void	down_utils(t_mlx *mlx);
+void	left_utils(t_mlx *mlx);
+int		close_window(t_mlx *mlx);
+int		hooking_function(int key, t_mlx *mlx);
 void	create_map(t_mlx *mlx);
 void	errorh(char *s);
-void	to_up(t_mlx *mlx, int *count);
-void	to_right(t_mlx *mlx, int *count);
-void	to_down(t_mlx *mlx, int *count);
-void	to_left(t_mlx *mlx, int *count);
 int		animation(t_mlx *mlx);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:25 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/22 21:22:36 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:53:33 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,94 +30,94 @@ void	eli_norm(t_mlx *mlx, char *s)
 	}
 }
 
-void	to_up(t_mlx *mlx, int *count)
+void	move_up(t_mlx *mlx, int *count)
 {
 	if (mlx->map[mlx->i - 1][mlx->j] != '1')
 	{
 		*count = *count + 1;
 		mlx->i = mlx->i - 1;
-		eli_norm (mlx, PLAYER_UP);
-		mlx->px_y = mlx->px_y - Pixcel;
+		eli_norm (mlx, D_UP);
+		mlx->p_y = mlx->p_y - Pixcel;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
 			exit(0);
-		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->px_x,
-			mlx->px_y);
-		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, mlx->px_x,
-			mlx->px_y + Pixcel);
+		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->p_x,
+			mlx->p_y);
+		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, mlx->p_x,
+			mlx->p_y + Pixcel);
 		if (mlx->map[mlx->i + 1][mlx->j] == 'S')
-			for_up(mlx);
+			up_utils(mlx);
 		if (mlx->map[mlx->i + 1][mlx->j] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.icon,
-				mlx->px_x, mlx->px_y + Pixcel);
+				mlx->p_x, mlx->p_y + Pixcel);
 		ft_printf ("%d\n", *count);
 	}
 }
 
-void	to_right(t_mlx *mlx, int *count)
+void	move_right(t_mlx *mlx, int *count)
 {
 	if (mlx->map[mlx->i][mlx->j + 1] != '1')
 	{
 		*count += 1;
 		mlx->j += 1;
-		eli_norm (mlx, P_RIGHT);
-		mlx->px_x += Pixcel;
+		eli_norm (mlx, D_RIGHT);
+		mlx->p_x += Pixcel;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
 			exit(0);
-		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->px_x,
-			mlx->px_y);
+		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->p_x,
+			mlx->p_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon,
-			mlx->px_x - Pixcel, mlx->px_y);
+			mlx->p_x - Pixcel, mlx->p_y);
 		if (mlx->map[mlx->i][mlx->j - 1] == 'S')
-			for_right(mlx);
+			right_utils(mlx);
 		if (mlx->map[mlx->i][mlx->j - 1] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.icon,
-				mlx->px_x - Pixcel, mlx->px_y);
+				mlx->p_x - Pixcel, mlx->p_y);
 		ft_printf ("%d\n", *count);
 	}
 }
 
-void	to_down(t_mlx *mlx, int *count)
+void	move_down(t_mlx *mlx, int *count)
 {
 	if (mlx->map[mlx->i + 1][mlx->j] != '1')
 	{
 		*count += 1;
 		mlx->i += 1;
-		eli_norm (mlx, P_DOWN);
-		mlx->px_y += Pixcel;
+		eli_norm (mlx, D_DOWN);
+		mlx->p_y += Pixcel;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
 			exit(0);
-		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->px_x,
-			mlx->px_y);
-		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, mlx->px_x,
-			mlx->px_y - Pixcel);
+		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->p_x,
+			mlx->p_y);
+		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon, mlx->p_x,
+			mlx->p_y - Pixcel);
 		if (mlx->map[mlx->i - 1][mlx->j] == 'S')
-			for_down(mlx);
+			down_utils(mlx);
 		if (mlx->map[mlx->i - 1][mlx->j] == 'E')
-			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.icon, mlx->px_x,
-				mlx->px_y - Pixcel);
+			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.icon, mlx->p_x,
+				mlx->p_y - Pixcel);
 		ft_printf ("%d\n", *count);
 	}
 }
 
-void	to_left(t_mlx *mlx, int *count)
+void	move_left(t_mlx *mlx, int *count)
 {
 	if (mlx->map[mlx->i][mlx->j - 1] != '1')
 	{
 		*count += 1;
 		mlx->j -= 1;
-		eli_norm (mlx, P_LEFT);
-		mlx->px_x -= Pixcel;
+		eli_norm (mlx, D_LEFT);
+		mlx->p_x -= Pixcel;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
 			exit(0);
-		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->px_x,
-			mlx->px_y);
+		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.icon, mlx->p_x,
+			mlx->p_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.icon,
-			mlx->px_x + Pixcel, mlx->px_y);
+			mlx->p_x + Pixcel, mlx->p_y);
 		if (mlx->map[mlx->i][mlx->j + 1] == 'S')
-			for_left(mlx);
+			left_utils(mlx);
 		if (mlx->map[mlx->i][mlx->j + 1] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.icon,
-				mlx->px_x + Pixcel, mlx->px_y);
+				mlx->p_x + Pixcel, mlx->p_y);
 		ft_printf ("%d\n", *count);
 	}
 }

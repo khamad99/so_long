@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:05:40 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/22 08:05:43 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:37:49 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	kreativs_chheriqec(t_mlx *mlx, int i, int *x, int y)
 		{
 			mlx->i = i;
 			mlx->j = j;
-			mlx->px_x = *x;
-			mlx->px_y = y;
+			mlx->p_x = *x;
+			mlx->p_y = y;
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->P.icon, *x, y);
 		}
 		else if (mlx->map[i][j] == 'E')
