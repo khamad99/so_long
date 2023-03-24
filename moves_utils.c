@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:36 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 14:39:43 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:58:54 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	up_utils(t_mlx *mlx)
 	mlx->s.img = mlx_xpm_file_to_image(mlx->mlx, SPACE, &x, &x);
 	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img, mlx->p_x,
 		mlx->p_y + Pixcel);
-	mlx->s.img = mlx_xpm_file_to_image(mlx->mlx, SPACE, &x, &x);
 }
 
 void	right_utils(t_mlx *mlx)
@@ -31,7 +30,6 @@ void	right_utils(t_mlx *mlx)
 	mlx->s.img = mlx_xpm_file_to_image(mlx->mlx, SPACE, &x, &x);
 	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img,
 		mlx->p_x - Pixcel, mlx->p_y);
-	mlx->s.img = mlx_xpm_file_to_image(mlx->mlx, SPACE, &x, &x);
 }
 
 void	down_utils(t_mlx *mlx)
@@ -42,7 +40,6 @@ void	down_utils(t_mlx *mlx)
 	mlx->s.img = mlx_xpm_file_to_image(mlx->mlx, SPACE, &x, &x);
 	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img,
 		mlx->p_x, mlx->p_y - Pixcel);
-	mlx->s.img = mlx_xpm_file_to_image(mlx->mlx, SPACE, &x, &x);
 }
 
 void	left_utils(t_mlx *mlx)
@@ -53,5 +50,4 @@ void	left_utils(t_mlx *mlx)
 	mlx->s.img = mlx_xpm_file_to_image(mlx->mlx, SPACE, &x, &x);
 	mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img,
 		mlx->p_x + Pixcel, mlx->p_y);
-	mlx->s.img = mlx_xpm_file_to_image(mlx->mlx, SPACE, &x, &x);
 }

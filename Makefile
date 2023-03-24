@@ -6,7 +6,7 @@
 #    By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:24:11 by kalshaer          #+#    #+#              #
-#    Updated: 2023/03/23 14:30:07 by kalshaer         ###   ########.fr        #
+#    Updated: 2023/03/24 21:44:43 by kalshaer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,11 @@ MLX_FLAGS	=	-I./minilibx -lm -lmlx -framework OpenGL -framework AppKit
 SRS	=		so_long.c \
 			parsing1.c \
 			parsing2.c \
-			images.c \
+			map_init.c \
 			render.c \
 			moves.c \
 			hook.c \
+			error_handling.c \
 			moves_utils.c
 
 OBJ		=	$(SRS:.c=.o)

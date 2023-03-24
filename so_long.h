@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:56 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 14:44:04 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:43:10 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,7 @@ typedef struct s_count
 	int	e_y;
 }	t_count;
 
-int		count_symbols(char **s);
-char	**map_check(char *file, int *mlxcount);
+char	**map_check(char *map, int *mlxcount);
 void	move_up(t_mlx *mlx, int *count);
 void	move_right(t_mlx *mlx, int *count);
 void	move_down(t_mlx *mlx, int *count);
@@ -91,7 +90,11 @@ void	left_utils(t_mlx *mlx);
 int		close_window(t_mlx *mlx);
 int		hooking_function(int key, t_mlx *mlx);
 void	create_map(t_mlx *mlx);
-void	errorh(char *s);
-int		animation(t_mlx *mlx);
+void	errorh(char *s, char **split, char *ss);
+void	errorh2(char *s, char **split, char **split2, char *ss);
+int		rendering(t_mlx *mlx);
+int		count_symbols(char *ss, int i);
+void	free_s(char **split);
+void	destory(t_mlx *mlx);
 
 #endif

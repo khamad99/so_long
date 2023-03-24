@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:17 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 14:19:44 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:55:50 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	main(int argc, char **argv)
 	t_mlx		mlx;
 
 	if (argc == 1)
-		errorh("No map in arguments\n");
+		errorh("No map in arguments\n", NULL, NULL);
 	if (argc > 2)
-		errorh("only one argument is allowed\n");
+		errorh("only one argument is allowed\n", NULL, NULL);
 	mlx.map = map_check(argv[1], &(mlx.count));
 	create_map(&mlx);
 	mlx_string_put(mlx.mlx, mlx.win, 0, 10, 0x00000000, "0");

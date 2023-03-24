@@ -6,23 +6,23 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:25 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 14:39:53 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:42:55 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	eli_norm(t_mlx *mlx, char *s)
+static void	moves_utils(t_mlx *mlx, char *s)
 {
 	int	x;
 
 	x = 0;
 	if (mlx->map[mlx->i][mlx->j] == 'K')
-		exit(0);
+		destory(mlx);
 	mlx_destroy_image(mlx->mlx, mlx->p.img);
 	mlx->p.img = mlx_xpm_file_to_image(mlx->mlx, s, &x, &x);
 	if (!(mlx->p.img))
-		errorh("Invalid image path or img\n\n");
+		errorh("Invalid image path or img\n", mlx->map, NULL);
 	if (mlx->map[mlx->i][mlx->j] == 'C' && mlx->count)
 	{
 		mlx->count--;
@@ -36,10 +36,10 @@ void	move_up(t_mlx *mlx, int *count)
 	{
 		*count = *count + 1;
 		mlx->i = mlx->i - 1;
-		eli_norm (mlx, D_UP);
+		moves_utils(mlx, D_UP);
 		mlx->p_y = mlx->p_y - Pixcel;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			exit(0);
+			destory(mlx);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.img, mlx->p_x,
 			mlx->p_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img, mlx->p_x,
@@ -49,7 +49,7 @@ void	move_up(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i + 1][mlx->j] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.img,
 				mlx->p_x, mlx->p_y + Pixcel);
-		ft_printf ("%d\n", *count);
+		ft_printf("%d\n", *count);
 	}
 }
 
@@ -59,10 +59,10 @@ void	move_right(t_mlx *mlx, int *count)
 	{
 		*count += 1;
 		mlx->j += 1;
-		eli_norm (mlx, D_RIGHT);
+		moves_utils(mlx, D_RIGHT);
 		mlx->p_x += Pixcel;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			exit(0);
+			destory(mlx);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.img, mlx->p_x,
 			mlx->p_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img,
@@ -72,7 +72,7 @@ void	move_right(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i][mlx->j - 1] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.img,
 				mlx->p_x - Pixcel, mlx->p_y);
-		ft_printf ("%d\n", *count);
+		ft_printf("%d\n", *count);
 	}
 }
 
@@ -82,10 +82,10 @@ void	move_down(t_mlx *mlx, int *count)
 	{
 		*count += 1;
 		mlx->i += 1;
-		eli_norm (mlx, D_DOWN);
+		moves_utils(mlx, D_DOWN);
 		mlx->p_y += Pixcel;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			exit(0);
+			destory(mlx);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.img, mlx->p_x,
 			mlx->p_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img, mlx->p_x,
@@ -95,7 +95,7 @@ void	move_down(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i - 1][mlx->j] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.img, mlx->p_x,
 				mlx->p_y - Pixcel);
-		ft_printf ("%d\n", *count);
+		ft_printf("%d\n", *count);
 	}
 }
 
@@ -105,10 +105,10 @@ void	move_left(t_mlx *mlx, int *count)
 	{
 		*count += 1;
 		mlx->j -= 1;
-		eli_norm (mlx, D_LEFT);
+		moves_utils(mlx, D_LEFT);
 		mlx->p_x -= Pixcel;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			exit(0);
+			destory(mlx);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.img, mlx->p_x,
 			mlx->p_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img,
@@ -118,6 +118,6 @@ void	move_left(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i][mlx->j + 1] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.img,
 				mlx->p_x + Pixcel, mlx->p_y);
-		ft_printf ("%d\n", *count);
+		ft_printf("%d\n", *count);
 	}
 }

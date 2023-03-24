@@ -6,13 +6,13 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:07 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/23 14:39:55 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:06:04 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	animation_utils(t_mlx *mlx, char a, char *s)
+static void	rendering_utils(t_mlx *mlx, char a, char *s)
 {
 	int	x;
 	int	i;
@@ -21,7 +21,7 @@ void	animation_utils(t_mlx *mlx, char a, char *s)
 	mlx_destroy_image(mlx->mlx, mlx->c.img);
 	mlx->c.img = mlx_xpm_file_to_image(mlx->mlx, s, &x, &x);
 	if (!(mlx->c.img))
-		errorh("Invalid image path or img\n");
+		errorh("Invalid image path or img\n", mlx->map, NULL);
 	i = -1;
 	while (mlx->map[++i])
 	{
@@ -35,15 +35,15 @@ void	animation_utils(t_mlx *mlx, char a, char *s)
 	}
 }
 
-int	animation(t_mlx *mlx)
+int	rendering(t_mlx *mlx)
 {
 	static int	i;
 	static int	j;
 
 	if (i % 5000 == 0)
-		animation_utils(mlx, 'C', F_LEFT);
+		rendering_utils(mlx, 'C', F_LEFT);
 	if (j % 10000 == 0)
-		animation_utils(mlx, 'C', F_RIGHT);
+		rendering_utils(mlx, 'C', F_RIGHT);
 	i++;
 	j++;
 	return (0);
