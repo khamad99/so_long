@@ -6,7 +6,7 @@
 #    By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:24:11 by kalshaer          #+#    #+#              #
-#    Updated: 2023/03/25 13:25:33 by kalshaer         ###   ########.fr        #
+#    Updated: 2023/03/25 13:27:39 by kalshaer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,10 @@ MLX_FILE	=	minilibx
 
 FLAGS	=	-Wall -Wextra -Werror
 
-MLX_FLAGS	= -lm -lmlx
-
 ifeq ($(shell uname), Darwin)
-	MLX_FLAGS += -Lminilibx -Iminilibx -framework OpenGL -framework AppKit
+	MLX_FLAGS = -Lminilibx -Iminilibx -lm -lmlx -framework OpenGL -framework AppKit
 else
-	MLX_FILE = minilibx-linux
-	MLX_FLAGS += -Lminilibx_linux -Iminilibx_linux -lXext -lX11 -lz
+	MLX_FLAGS = -Lminilibx-linux -Iminilibx-linux -lm -lmlx -lXext -lX11 -lz 
 endif
 
 SRS	=		so_long.c \
