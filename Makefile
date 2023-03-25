@@ -6,7 +6,7 @@
 #    By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:24:11 by kalshaer          #+#    #+#              #
-#    Updated: 2023/03/25 13:18:35 by kalshaer         ###   ########.fr        #
+#    Updated: 2023/03/25 13:25:33 by kalshaer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ make_MLX:
 ifeq ($(shell uname), Darwin)
 	make -C minilibx
 else
-	cd minilibx_linux && make
+	cd minilibx-linux && make
 endif
 
 clean:
