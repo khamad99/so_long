@@ -6,7 +6,7 @@
 #    By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:24:11 by kalshaer          #+#    #+#              #
-#    Updated: 2023/03/24 21:44:43 by kalshaer         ###   ########.fr        #
+#    Updated: 2023/03/25 13:18:35 by kalshaer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,18 @@ NAME	=	so_long
 
 LIBFT		=	libft/libft.a
 
+MLX_FILE	=	minilibx
+
 FLAGS	=	-Wall -Wextra -Werror
 
-MLX_FLAGS	=	-I./minilibx -lm -lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS	= -lm -lmlx
+
+ifeq ($(shell uname), Darwin)
+	MLX_FLAGS += -Lminilibx -Iminilibx -framework OpenGL -framework AppKit
+else
+	MLX_FILE = minilibx-linux
+	MLX_FLAGS += -Lminilibx_linux -Iminilibx_linux -lXext -lX11 -lz
+endif
 
 SRS	=		so_long.c \
 			parsing1.c \
@@ -39,7 +48,11 @@ make_libft:
 	make -C libft
 
 make_MLX:
+ifeq ($(shell uname), Darwin)
 	make -C minilibx
+else
+	cd minilibx_linux && make
+endif
 
 clean:
 	rm -f *.o
