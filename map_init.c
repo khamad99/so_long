@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:08 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/24 22:04:13 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/25 11:01:26 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	images(t_mlx *mlx)
 	mlx->sh.img = mlx_xpm_file_to_image(mlx->mlx, mlx->sh.path, &x, &x);
 	if (!mlx->p.img || !mlx->s.img || !mlx->c.img
 		|| !mlx->w.img || !mlx->e.img || !mlx->sh.img)
-		errorh("Invalid image path or img\n", mlx->map, NULL);
+		destory("Invalid image path or img\n", mlx);
 }
 
 static void	fill_map2(t_mlx *mlx, int i, int *x, int y)
@@ -65,7 +65,7 @@ static void	fill_map2(t_mlx *mlx, int i, int *x, int y)
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->c.img, *x, y);
 		else if (mlx->map[i][j] == 'K')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->sh.img, *x, y);
-		*x = *x + Pixcel;
+		*x = *x + PIXCEL;
 	}
 }
 
@@ -81,7 +81,7 @@ static void	fill_map(t_mlx *mlx)
 	while (mlx->map[++i])
 	{
 		fill_map2(mlx, i, &x, y);
-		y = y + Pixcel;
+		y = y + PIXCEL;
 	}
 }
 
@@ -93,8 +93,8 @@ void	create_map(t_mlx *mlx)
 	mlx->map_y = 0;
 	while (mlx->map[mlx->map_y])
 		mlx->map_y++;
-	mlx->map_x = Pixcel * ft_strlen(mlx->map[0]);
-	mlx->map_y = Pixcel * mlx->map_y;
+	mlx->map_x = PIXCEL * ft_strlen(mlx->map[0]);
+	mlx->map_y = PIXCEL * mlx->map_y;
 	mlx->win = mlx_new_window(mlx->mlx, mlx->map_x, mlx->map_y, "so_long");
 	if (!(mlx->win))
 		errorh("new_window function faild\n", mlx->map, NULL);

@@ -6,30 +6,14 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:56 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/25 06:07:43 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/25 11:01:23 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-//This is game about Hummer and policemen with their cars.
-
-//Your goal is to kill all policemen and not been crashed by their cars.
-
-//If you want win, go to garage after killing all policemen.
-
-//If you want to change game theme, change the 
-// image paths from here(header file macros).
-
-//If your player haven`t images in 4 directions, you may
-// change directions.c file, only comment
-// lines where is written macros which you don`t use
-
-//And please, keep images size in 50PX in width and height,
-// or change it from below
-
-# define Pixcel 50
+# define PIXCEL 50
 # define D_UP "textures/dolphinup.xpm"
 # define D_RIGHT "textures/dolphinright.xpm"
 # define D_DOWN "textures/dolphindown.xpm"
