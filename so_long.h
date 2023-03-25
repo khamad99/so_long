@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:56 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/25 11:01:23 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/25 13:30:17 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define WALL "textures/wall.xpm"
 # define SPACE "textures/seab.xpm"
 # define EXIT "textures/seagate.xpm"
-# include "minilibx/mlx.h"
+# include "mlx.h"
 # include "libft/libft.h"
 
 typedef struct s_img
