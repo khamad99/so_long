@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:25 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/25 11:01:19 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/25 11:25:40 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static void	moves_utils(t_mlx *mlx, char *s)
 	}
 }
 
-void	move_up(t_mlx *mlx, int *count)
+void	move_up(t_mlx *mlx, int *moves)
 {
 	if (mlx->map[mlx->i - 1][mlx->j] != '1')
 	{
-		*count = *count + 1;
+		*moves = *moves + 1;
 		mlx->i = mlx->i - 1;
 		moves_utils(mlx, D_UP);
 		mlx->p_y = mlx->p_y - PIXCEL;
@@ -49,16 +49,16 @@ void	move_up(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i + 1][mlx->j] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.img,
 				mlx->p_x, mlx->p_y + PIXCEL);
-		ft_printf("%d\n", *count);
+		ft_printf("%d\n", *moves);
 	}
 }
 
-void	move_right(t_mlx *mlx, int *count)
+void	move_right(t_mlx *mlx, int *moves)
 {
 	if (mlx->map[mlx->i][mlx->j + 1] != '1')
 	{
-		*count += 1;
-		mlx->j += 1;
+		*moves = *moves + 1;
+		mlx->j = mlx->j + 1;
 		moves_utils(mlx, D_RIGHT);
 		mlx->p_x += PIXCEL;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
@@ -72,16 +72,16 @@ void	move_right(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i][mlx->j - 1] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.img,
 				mlx->p_x - PIXCEL, mlx->p_y);
-		ft_printf("%d\n", *count);
+		ft_printf("%d\n", *moves);
 	}
 }
 
-void	move_down(t_mlx *mlx, int *count)
+void	move_down(t_mlx *mlx, int *moves)
 {
 	if (mlx->map[mlx->i + 1][mlx->j] != '1')
 	{
-		*count += 1;
-		mlx->i += 1;
+		*moves = *moves + 1;
+		mlx->i = mlx->i + 1;
 		moves_utils(mlx, D_DOWN);
 		mlx->p_y += PIXCEL;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
@@ -95,16 +95,16 @@ void	move_down(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i - 1][mlx->j] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.img, mlx->p_x,
 				mlx->p_y - PIXCEL);
-		ft_printf("%d\n", *count);
+		ft_printf("%d\n", *moves);
 	}
 }
 
-void	move_left(t_mlx *mlx, int *count)
+void	move_left(t_mlx *mlx, int *moves)
 {
 	if (mlx->map[mlx->i][mlx->j - 1] != '1')
 	{
-		*count += 1;
-		mlx->j -= 1;
+		*moves = *moves + 1;
+		mlx->j = mlx->j - 1;
 		moves_utils(mlx, D_LEFT);
 		mlx->p_x -= PIXCEL;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
@@ -118,6 +118,6 @@ void	move_left(t_mlx *mlx, int *count)
 		if (mlx->map[mlx->i][mlx->j + 1] == 'E')
 			mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->e.img,
 				mlx->p_x + PIXCEL, mlx->p_y);
-		ft_printf("%d\n", *count);
+		ft_printf("%d\n", *moves);
 	}
 }

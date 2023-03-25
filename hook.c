@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:54:36 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/25 10:57:27 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/25 11:21:04 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ int	close_window(t_mlx *mlx)
 
 int	hooking_function(int key, t_mlx *mlx)
 {
-	static int	count;
+	static int	moves;
 	char		*s;
 
 	if (key == 53)
 		destory(NULL, mlx);
 	else if (key == 13 || key == 126)
-		move_up(mlx, &count);
+		move_up(mlx, &moves);
 	else if (key == 2 || key == 124)
-		move_right(mlx, &count);
+		move_right(mlx, &moves);
 	else if (key == 1 || key == 125)
-		move_down(mlx, &count);
+		move_down(mlx, &moves);
 	else if (key == 0 || key == 123)
-		move_left(mlx, &count);
+		move_left(mlx, &moves);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->w.img, 0, 0);
-	s = ft_itoa(count);
+	s = ft_itoa(moves);
 	mlx_string_put(mlx->mlx, mlx->win, 0, 10, 0x00000000, s);
 	free(s);
 	return (0);
