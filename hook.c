@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:54:36 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/24 23:09:20 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/25 06:09:48 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ int	hooking_function(int key, t_mlx *mlx)
 	char		*s;
 
 	if (key == 53)
-	{
-		mlx_destroy_window(mlx->mlx, mlx->win);
-		exit(0);
-	}
+		destory(NULL, mlx);
 	else if (key == 13 || key == 126)
 		move_up(mlx, &count);
 	else if (key == 2 || key == 124)

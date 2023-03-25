@@ -6,14 +6,16 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 16:54:05 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/24 23:03:49 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/25 06:09:10 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	destory(t_mlx *mlx)
+void	destory(char *s, t_mlx *mlx)
 {
+	if (s)
+		ft_printf ("%s", s);
 	mlx_destroy_image(mlx->mlx, mlx->p.img);
 	mlx_destroy_image(mlx->mlx, mlx->w.img);
 	mlx_destroy_image(mlx->mlx, mlx->s.img);

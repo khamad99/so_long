@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:56 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/24 22:43:10 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/25 06:07:43 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,6 @@ void	errorh2(char *s, char **split, char **split2, char *ss);
 int		rendering(t_mlx *mlx);
 int		count_symbols(char *ss, int i);
 void	free_s(char **split);
-void	destory(t_mlx *mlx);
+void	destory(char *s, t_mlx *mlx);
 
 #endif
