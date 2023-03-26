@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 16:54:05 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/25 06:09:10 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/26 14:25:03 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	destory(char *s, t_mlx *mlx)
 	mlx_destroy_image(mlx->mlx, mlx->c.img);
 	mlx_destroy_image(mlx->mlx, mlx->e.img);
 	mlx_destroy_image(mlx->mlx, mlx->sh.img);
+	mlx_clear_window(mlx->mlx, mlx->win);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	free_s(mlx->map);
 	exit (0);

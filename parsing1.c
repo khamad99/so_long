@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:56 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/24 22:48:38 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/26 14:07:45 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ static void	symbols_checker(char *s)
 				errorh("Invalid symbols\n", split, s);
 		symbols_checker2(split, i, len, s);
 	}
+	free_s(split);
 }
 
 char	**map_check(char *f, int *mlxcount)
