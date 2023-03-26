@@ -6,7 +6,7 @@
 #    By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:24:11 by kalshaer          #+#    #+#              #
-#    Updated: 2023/03/26 10:35:47 by kalshaer         ###   ########.fr        #
+#    Updated: 2023/03/26 10:40:29 by kalshaer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,17 +14,18 @@ NAME	=	so_long
 
 LIBFT		=	libft/libft.a
 
-MLX_FILE	=	minilibx
-ifeq ($(shell uname), Linux)
+ifeq ($(shell uname), Darwin)
+	MLX_FILE	=	minilibx
+else
 	MLX_FILE	=	minilibx-linux
 endif
 
 CFLAGS	=	-Wall -Wextra -Werror
 
 ifeq ($(shell uname), Darwin)
-	MLX_FLAGS = -I./minilibx -lm -lmlx -framework OpenGL -framework AppKit
+	MLX_FLAGS = -I./$(MLX_FILE) -lm -lmlx -framework OpenGL -framework AppKit
 else
-	MLX_FLAGS = -I./minilibx-linux -lmlx -lXext -lX11 
+	MLX_FLAGS = -I./$(MLX_FILE) -lmlx -lXext -lX11 
 endif
 
 SRS	=		so_long.c \
@@ -42,7 +43,7 @@ OBJ		=	$(SRS:.c=.o)
 all: make_MLX make_libft $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(SRS) -o $(NAME) -L./minilibx $(MLX_FLAGS) $(LIBFT)
+	$(CC) $(CFLAGS) $(SRS) -o $(NAME) -L./$(MLX_FILE) $(MLX_FLAGS) $(LIBFT)
 
 make_libft:
 	make -C libft
