@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 09:04:48 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/22 11:04:44 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:56:28 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
-	if(!s1)
+	if (!s1)
 		return (-3);
-
 	i = 0;
 	while (i < n)
 	{

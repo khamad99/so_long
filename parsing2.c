@@ -6,12 +6,11 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:47 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/24 18:24:27 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/26 16:57:07 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 static int	c_bath(char **s, int x, int y, int *coll)
 {
