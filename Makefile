@@ -6,7 +6,7 @@
 #    By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:24:11 by kalshaer          #+#    #+#              #
-#    Updated: 2023/03/26 10:33:12 by kalshaer         ###   ########.fr        #
+#    Updated: 2023/03/26 10:35:47 by kalshaer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,4 +69,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: make_lib make_MLX all clean fclean re
+.PHONY: make_libft make_MLX all clean fclean re
