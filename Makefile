@@ -6,7 +6,7 @@
 #    By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/04 14:24:11 by kalshaer          #+#    #+#              #
-#    Updated: 2023/03/25 13:34:40 by kalshaer         ###   ########.fr        #
+#    Updated: 2023/03/26 10:33:12 by kalshaer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,12 @@ ifeq ($(shell uname), Linux)
 	MLX_FILE	=	minilibx-linux
 endif
 
-CFLAGS	=	-Wall -Wextra -Werror -I$(MLX_FILE)
+CFLAGS	=	-Wall -Wextra -Werror
 
 ifeq ($(shell uname), Darwin)
-	MLX_FLAGS = -Lminilibx -lm -lmlx -framework OpenGL -framework AppKit
+	MLX_FLAGS = -I./minilibx -lm -lmlx -framework OpenGL -framework AppKit
 else
-	MLX_FLAGS = -Lminilibx-linux -lm -lmlx -lXext -lX11 -lz 
+	MLX_FLAGS = -I./minilibx-linux -lmlx -lXext -lX11 
 endif
 
 SRS	=		so_long.c \
@@ -57,7 +57,11 @@ endif
 clean:
 	rm -f *.o
 	make clean -C libft
+ifeq ($(shell uname), Darwin)
 	make clean -C minilibx
+else
+	cd minilibx-linux && make clean
+endif
 
 fclean: clean
 	rm -f $(NAME)
@@ -65,4 +69,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: run_lib run_MLX all clean fclean re
+.PHONY: make_lib make_MLX all clean fclean re
