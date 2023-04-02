@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handling copy.c                              :+:      :+:    :+:   */
+/*   error_handling_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 16:54:05 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/26 22:10:58 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:46:06 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	destory(char *s, t_mlx *mlx)
+void	destory(char *s, t_mlx *mlx, int exit_code)
 {
 	if (s)
 		ft_printf ("%s", s);
@@ -25,7 +25,7 @@ void	destory(char *s, t_mlx *mlx)
 	mlx_clear_window(mlx->mlx, mlx->win);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	free_s(mlx->map);
-	exit (0);
+	exit (exit_code);
 }
 
 void	errorh(char *s, char **split, char *ss)

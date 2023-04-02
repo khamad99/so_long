@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hook copy.c                                        :+:      :+:    :+:   */
+/*   hook_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 13:54:36 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/26 22:10:46 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:49:20 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	hooking_function(int key, t_mlx *mlx)
 	char		*s;
 
 	if (key == 53)
-		destory(NULL, mlx);
+		destory(NULL, mlx, 1);
 	else if (key == 13 || key == 126)
 		move_up(mlx, &moves);
 	else if (key == 2 || key == 124)

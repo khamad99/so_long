@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:07 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/25 11:06:33 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:51:16 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	rendering_utils(t_mlx *mlx, char c, char *s)
 	mlx_destroy_image(mlx->mlx, mlx->c.img);
 	mlx->c.img = mlx_xpm_file_to_image(mlx->mlx, s, &x, &x);
 	if (!(mlx->c.img))
-		destory("Invalid image path or img\n", mlx);
+		destory("Invalid image path or img\n", mlx, 0);
 	i = -1;
 	while (mlx->map[++i])
 	{

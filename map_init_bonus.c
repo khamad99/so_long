@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:09:08 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/26 22:10:40 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:49:31 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	images(t_mlx *mlx)
 	mlx->sh.img = mlx_xpm_file_to_image(mlx->mlx, mlx->sh.path, &x, &x);
 	if (!mlx->p.img || !mlx->s.img || !mlx->c.img
 		|| !mlx->w.img || !mlx->e.img || !mlx->sh.img)
-		destory("Invalid image path or img\n", mlx);
+		destory("Invalid image path or img\n", mlx, 0);
 }
 
 static void	fill_map2(t_mlx *mlx, int i, int *x, int y)

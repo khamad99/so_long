@@ -6,13 +6,13 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 16:54:05 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/26 16:56:44 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:46:12 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	destory(char *s, t_mlx *mlx)
+void	destory(char *s, t_mlx *mlx, int exit_code)
 {
 	if (s)
 		ft_printf ("%s", s);
@@ -25,7 +25,7 @@ void	destory(char *s, t_mlx *mlx)
 	mlx_clear_window(mlx->mlx, mlx->win);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	free_s(mlx->map);
-	exit (0);
+	exit (exit_code);
 }
 
 void	errorh(char *s, char **split, char *ss)
@@ -35,7 +35,7 @@ void	errorh(char *s, char **split, char *ss)
 		free (ss);
 	if (split)
 		free_s(split);
-	exit(1);
+	exit(0);
 }
 
 void	errorh2(char *s, char **split, char **split2, char *ss)
@@ -47,7 +47,7 @@ void	errorh2(char *s, char **split, char **split2, char *ss)
 		free_s(split);
 	if (split2)
 		free_s(split2);
-	exit(1);
+	exit(0);
 }
 
 void	free_s(char **s)

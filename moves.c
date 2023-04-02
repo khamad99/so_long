@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:25 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/25 11:25:40 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/03/30 10:51:03 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	moves_utils(t_mlx *mlx, char *s)
 
 	x = 0;
 	if (mlx->map[mlx->i][mlx->j] == 'K')
-		destory("You loss!\n", mlx);
+		destory("You loss!\n", mlx, 1);
 	mlx_destroy_image(mlx->mlx, mlx->p.img);
 	mlx->p.img = mlx_xpm_file_to_image(mlx->mlx, s, &x, &x);
 	if (!(mlx->p.img))
@@ -39,7 +39,7 @@ void	move_up(t_mlx *mlx, int *moves)
 		moves_utils(mlx, D_UP);
 		mlx->p_y = mlx->p_y - PIXCEL;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			destory("You win!\n", mlx);
+			destory("You win!\n", mlx, 1);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.img, mlx->p_x,
 			mlx->p_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img, mlx->p_x,
@@ -62,7 +62,7 @@ void	move_right(t_mlx *mlx, int *moves)
 		moves_utils(mlx, D_RIGHT);
 		mlx->p_x += PIXCEL;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			destory("You win!\n", mlx);
+			destory("You win!\n", mlx, 1);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.img, mlx->p_x,
 			mlx->p_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img,
@@ -85,7 +85,7 @@ void	move_down(t_mlx *mlx, int *moves)
 		moves_utils(mlx, D_DOWN);
 		mlx->p_y += PIXCEL;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			destory("You win!\n", mlx);
+			destory("You win!\n", mlx, 1);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.img, mlx->p_x,
 			mlx->p_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img, mlx->p_x,
@@ -108,7 +108,7 @@ void	move_left(t_mlx *mlx, int *moves)
 		moves_utils(mlx, D_LEFT);
 		mlx->p_x -= PIXCEL;
 		if (mlx->map[mlx->i][mlx->j] == 'E' && mlx->count == 0)
-			destory("You win!\n", mlx);
+			destory("You win!\n", mlx, 1);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->p.img, mlx->p_x,
 			mlx->p_y);
 		mlx_put_image_to_window (mlx->mlx, mlx->win, mlx->s.img,
