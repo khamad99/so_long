@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 08:08:56 by kalshaer          #+#    #+#             */
-/*   Updated: 2023/03/26 14:07:45 by kalshaer         ###   ########.fr       */
+/*   Updated: 2023/04/05 11:34:15 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*read_map(char *map)
 	char	*s;
 
 	i = 0;
-	if (ft_strncmp(ft_strrchr(map, '.'), ".ber", 4))
+	if (ft_strncmp(ft_strrchr(map, '.'), ".ber", 5))
 		errorh("Invalid file\n", NULL, NULL);
 	fd = open(map, O_RDONLY);
 	if (fd < 0)
